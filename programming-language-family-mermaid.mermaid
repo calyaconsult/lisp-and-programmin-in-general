@@ -1,0 +1,68 @@
+graph TD
+    %% Main trunk of the tree
+    MC["Machine Code"] --> ASM["Assembly"]
+    
+    %% Major paradigm branches
+    ASM --> PROC["Procedural"]
+    ASM --> FUNC["Functional"]
+    ASM --> LOGIC["Logic/Declarative"]
+    
+    %% Procedural branch
+    PROC --> FORTRAN
+    PROC --> COBOL
+    PROC --> BASIC
+    PROC --> C
+    
+    %% C family
+    C --> CPP["C++"]
+    C --> OBJC["Objective-C"]
+    C -.-> GO["Go"]
+    C -.-> RUST["Rust"]
+    OBJC --> SWIFT["Swift"]
+    
+    %% Functional branch
+    FUNC --> LISP
+    FUNC --> ML["ML Family"]
+    
+    LISP --> SCHEME["Scheme"]
+    LISP --> CLISP["Common Lisp"]
+    LISP -.-> CLOJURE["Clojure"]
+    ML --> HASKELL["Haskell"]
+    
+    %% Logic branch
+    LOGIC --> PROLOG
+    LOGIC --> SQL
+    
+    %% Cross-paradigm influences
+    PROC -.-> OO["Object-Oriented"]
+    FUNC -.-> OO
+    
+    %% Object-Oriented languages
+    OO --> SMALLTALK["Smalltalk"]
+    OO --> JAVA["Java"]
+    OO --> RUBY["Ruby"]
+    CPP -.-> OO
+    
+    %% Scripting languages
+    PROC -.-> SCRIPT["Scripting Languages"]
+    
+    SCRIPT --> PERL["Perl"]
+    SCRIPT --> PYTHON["Python"]
+    SCRIPT --> JS["JavaScript"]
+    JS --> TS["TypeScript"]
+    
+    %% Styling
+    classDef procedural fill:#eeac99,stroke:#333
+    classDef functional fill:#b6e6bd,stroke:#333
+    classDef logic fill:#c6def1,stroke:#333
+    classDef oo fill:#d6c6e1,stroke:#333
+    classDef scripting fill:#ffe6aa,stroke:#333
+    classDef lowlevel fill:#f9d5e5,stroke:#333
+    
+    class FORTRAN,COBOL,BASIC,C procedural
+    class LISP,SCHEME,CLISP,ML,HASKELL,CLOJURE functional
+    class PROLOG,SQL logic
+    class CPP,OBJC,SWIFT,SMALLTALK,JAVA,RUBY,OO,GO,RUST oo
+    class PERL,PYTHON,JS,TS,SCRIPT scripting
+    class MC,ASM lowlevel
+    class PROC,FUNC,LOGIC procedural,functional,logic
